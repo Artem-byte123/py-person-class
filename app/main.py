@@ -29,7 +29,6 @@ def create_person_list(people: list) -> list:
             relation_key = "wife"
             linked_name = person_dict.get("wife")
 
-
         elif "husband" in person_dict and person_dict["husband"] is not None:
             relation_key = "husband"
             linked_name = person_dict.get("husband")
