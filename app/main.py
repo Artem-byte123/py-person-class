@@ -11,9 +11,9 @@ def create_person_list(people: list) -> list:
     person_list = [
         Person(person_dict.get("name"), person_dict.get("age"))
         for person_dict in people
-        if isinstance(person_dict.get("name"), str) and isinstance(person_dict.get("age"), int)
+        if isinstance(person_dict.get("name"), str)
+        and isinstance(person_dict.get("age"), int)
     ]
-
     for person_dict in people:
         current_name = person_dict.get("name")
         current_person_obj = Person.people.get(current_name)
@@ -24,11 +24,11 @@ def create_person_list(people: list) -> list:
         linked_name = None
         wife_name = person_dict.get("wife")
 
-        if isinstance(wife_name, str) and wife_name is not None:
+        if isinstance(wife_name, str):
             relation_key = "wife"
-            linked_name = person_dict.get("wife")
+            linked_name = wife_name
 
-        elif isinstance(person_dict.get("husband"), str) and person_dict.get("husband") is not None:
+        elif isinstance(person_dict.get("husband"), str):
             relation_key = "husband"
             linked_name = person_dict.get("husband")
         else:
